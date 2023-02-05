@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "136708560381",
+    "project_id": "singlechatapp-a1057",
+    "storage_bucket": "singlechatapp-a1057.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136708560381:android:9e9e8bd6f877f52176b594",
+        "android_client_info": {
+          "package_name": "com.adeolaadesipe.singlechat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136708560381-575khj2kvn6pjjs6bom9u12i0r35tkkh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adeolaadesipe.singlechat",
+            "certificate_hash": "f075edb2903a0b9400e1ca751dc72568d7dab799"
+          }
+        },
+        {
+          "client_id": "136708560381-vc97t3qdv8o0jregl19655iqc2ficf8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjcSZyaWl5jxgpLWSM5opXztxNKGEFSnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136708560381-vc97t3qdv8o0jregl19655iqc2ficf8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
