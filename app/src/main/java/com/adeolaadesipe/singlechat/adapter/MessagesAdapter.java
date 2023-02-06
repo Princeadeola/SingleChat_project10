@@ -16,6 +16,8 @@ import com.adeolaadesipe.singlechat.model.Messages;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyViewHolder> {
     private final List<Messages> messages;
     private final Context context;
@@ -42,13 +44,13 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private ImageView userProfilePics;
+        //private CircleImageView userProfilePics;
         private TextView userName, userLastMessage, unseenMessage;
         private LinearLayout layout;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            userProfilePics = itemView.findViewById(R.id.user_profile);
+            //userProfilePics = itemView.findViewById(R.id.user_profile);
             userName = itemView.findViewById(R.id.userNameID);
             userLastMessage = itemView.findViewById(R.id.lastMessageID);
             unseenMessage = itemView.findViewById(R.id.unseenMessageID);
