@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@drawable/chats_bg"
         >
 
         <RelativeLayout
@@ -74,6 +75,14 @@
                 android:background="@drawable/round_btn_bt"
                 />
         </RelativeLayout>
+
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:background="#14000000"-->
+<!--            />-->
     </LinearLayout>
 
 </RelativeLayout>
