@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/mainLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_profile"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/user_circle"
+                android:layout_marginStart="20dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_toStartOf="@id/unseenMessageID"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/user_profile"
+                >
+
+                <TextView
+                    android:id="@+id/userNameID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textSize="18sp"
+                    android:text="Full Name"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/lastMessageID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="This is last message"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/theme_color_80"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/unseenMessageID"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:text="1"
+                android:textSize="11sp"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:background="@drawable/round_btn_bt"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
