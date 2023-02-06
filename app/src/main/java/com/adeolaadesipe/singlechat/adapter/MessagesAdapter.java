@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.adeolaadesipe.singlechat.R;
 import com.adeolaadesipe.singlechat.model.Messages;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -35,8 +36,25 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MessagesAdapter.MyViewHolder holder, int position) {
+        Messages list = messages.get(position);
 
+//        if (!list.getProfilePic().isEmpty()){
+//            Picasso.get().load(list.getProfilePic()).into(holder.userProfilePics);
+//        }
+            Picasso.get().load("https://imgs.search.brave.com/tWsF50Woy6Sdk1JtgUaRtxMAYmm9XscaJo19cduPv0Q/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9jZG4y/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvYXZhdGFycy05/OS82Mi9hdmF0YXIt/MzY5LTQ1NjMyMS01/MTIucG5n").into(holder.userProfilePics);
+//        Picasso.get().load("https://imgs.search.brave.com/tWsF50Woy6Sdk1JtgUaRtxMAYmm9XscaJo19cduPv0Q/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9jZG4y/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvYXZhdGFycy05/OS82Mi9hdmF0YXIt/MzY5LTQ1NjMyMS01/MTIucG5n").placeholder(getApplicationContext().getResources().getDrawable(R.drawable.profile)).error(getApplicationContext().getResources().getDrawable(R.drawable.profile)).into(userProfilePicture);
+
+
+        holder.userName.setText(list.getName());
+        holder.userLastMessage.setText(list.getLastMessage());
+
+        if (list.getUnseenMessages() == 0){
+            holder.unseenMessage.setVisibility(View.GONE);
+        }else {
+            holder.unseenMessage.setVisibility(View.VISIBLE);
+        }
     }
+
 
     @Override
     public int getItemCount() {
@@ -44,13 +62,13 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        //private CircleImageView userProfilePics;
+        private CircleImageView userProfilePics;
         private TextView userName, userLastMessage, unseenMessage;
         private LinearLayout layout;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            //userProfilePics = itemView.findViewById(R.id.user_profile);
+            userProfilePics = itemView.findViewById(R.id.user_profile);
             userName = itemView.findViewById(R.id.userNameID);
             userLastMessage = itemView.findViewById(R.id.lastMessageID);
             unseenMessage = itemView.findViewById(R.id.unseenMessageID);

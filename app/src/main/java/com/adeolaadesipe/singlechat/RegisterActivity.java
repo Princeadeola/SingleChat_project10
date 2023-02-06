@@ -73,7 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }else {
                             reference.child("users").child(number).child("email").setValue(email);
                             reference.child("users").child(number).child("name").setValue(name);
-                           //reference.child("users").child(number).child("profile_pic").setValue("");
+                            reference.child("users").child(number).child("profile_pic").setValue("https://imgs.search.brave.com/tWsF50Woy6Sdk1JtgUaRtxMAYmm9XscaJo19cduPv0Q/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9jZG4y/Lmljb25maW5kZXIu/Y29tL2RhdGEvaWNv/bnMvYXZhdGFycy05/OS82Mi9hdmF0YXIt/MzY5LTQ1NjMyMS01/MTIucG5n");
 
                             // save user details to memory
                             MemoryData.saveData(number, RegisterActivity.this);
