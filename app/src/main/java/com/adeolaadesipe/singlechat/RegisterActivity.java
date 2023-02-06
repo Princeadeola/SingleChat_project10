@@ -38,6 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.setMessage("Loading...");
 
+        // check if the user already logged in
         if (!MemoryData.getData(this).isEmpty()){
             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
             intent.putExtra("number", MemoryData.getData(this));
@@ -72,9 +73,10 @@ public class RegisterActivity extends AppCompatActivity {
                         }else {
                             reference.child("users").child(number).child("email").setValue(email);
                             reference.child("users").child(number).child("name").setValue(name);
+                           //reference.child("users").child(number).child("profile_pic").setValue("");
 
+                            // save user details to memory
                             MemoryData.saveData(number, RegisterActivity.this);
-
                             MemoryData.saveName(name, RegisterActivity.this);
                             Toast.makeText(RegisterActivity.this, "User successfully registered", Toast.LENGTH_SHORT).show();
 
