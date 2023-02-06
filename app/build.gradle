@@ -43,4 +43,10 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:31.2.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
+    // circular Image dependency
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //picasso dependency
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 }
