@@ -48,7 +48,7 @@
         android:paddingEnd="0dp"
         android:hint="Mobile Number"
         android:textSize="16sp"
-        android:inputType="numberPassword"
+        android:inputType="number"
         android:maxLines="1"
         android:background="@drawable/round_black_white"
         />

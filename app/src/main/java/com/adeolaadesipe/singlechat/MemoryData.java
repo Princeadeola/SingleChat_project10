@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 public class MemoryData {
     public static void saveData(String data, Context context){
         try {
-            FileOutputStream fileOutputStream = context.openFileOutput("userData.txt", Context.MODE_PRIVATE);
+            FileOutputStream fileOutputStream = context.openFileOutput("userdata.txt", Context.MODE_PRIVATE);
             fileOutputStream.write(data.getBytes());
             fileOutputStream.close();
         }catch (IOException e){
@@ -31,7 +31,7 @@ public class MemoryData {
     public static String getData(Context context){
         String data = "";
         try {
-            FileInputStream inputStream = context.openFileInput("userData.txt");
+            FileInputStream inputStream = context.openFileInput("userdata.txt");
             InputStreamReader streamReader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(streamReader);
             StringBuilder stringBuilder = new StringBuilder();

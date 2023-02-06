@@ -16,12 +16,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MainActivity extends AppCompatActivity {
     private String name;
     private String number;
     private String email;
     private RecyclerView messageRV;
-    ImageView userProfilePicture;
+//    CircleImageView userProfilePicture;
     DatabaseReference reference;
 
     @Override
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         messageRV = findViewById(R.id.messagesRVID);
-        userProfilePicture = findViewById(R.id.userProfilePictureID);
+//        userProfilePicture = findViewById(R.id.userProfilePicsID);
         reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://singlechatapp-a1057-default-rtdb.firebaseio.com");
 
         number = getIntent().getStringExtra("number");
@@ -47,12 +49,12 @@ public class MainActivity extends AppCompatActivity {
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                final String profilePicsUrl = snapshot.child("users").child(number).child("profile_pic").getValue(String.class);
-
-                if (!profilePicsUrl.isEmpty()){
-                    Picasso.get().load(profilePicsUrl).into(userProfilePicture);
-                    dialog.dismiss();
-                }
+//                final String profilePicsUrl = snapshot.child("users").child(number).child("profile_pic").getValue(String.class);
+//
+//                if (!profilePicsUrl.isEmpty()){
+//                    Picasso.get().load(profilePicsUrl).into(userProfilePicture);
+//                }
+                dialog.dismiss();
 
             }
 
