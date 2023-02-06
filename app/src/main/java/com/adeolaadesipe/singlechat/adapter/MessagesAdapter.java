@@ -1,6 +1,8 @@
 package com.adeolaadesipe.singlechat.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.adeolaadesipe.singlechat.R;
+import com.adeolaadesipe.singlechat.chats.ChatActivity;
 import com.adeolaadesipe.singlechat.model.Messages;
 import com.squareup.picasso.Picasso;
 
@@ -20,7 +23,7 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyViewHolder> {
-    private final List<Messages> messages;
+    private List<Messages> messages;
     private final Context context;
 
     public MessagesAdapter(List<Messages> messages, Context context) {
@@ -50,11 +53,31 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
         if (list.getUnseenMessages() == 0){
             holder.unseenMessage.setVisibility(View.GONE);
+            holder.userLastMessage.setTextColor(Color.parseColor("#959595"));
         }else {
             holder.unseenMessage.setVisibility(View.VISIBLE);
+            holder.unseenMessage.setText(list.getUnseenMessages()+"");
+            holder.userLastMessage.setTextColor(context.getResources().getColor(R.color.theme_color_80));
         }
+
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ChatActivity.class);
+                intent.putExtra("number", list.getNumber());
+                intent.putExtra("name", list.getName());
+                intent.putExtra("chat_key", list.getChatKey());
+                //intent.putExtra("profile_pic", list.getProfilePic());
+
+                context.startActivity(intent);
+            }
+        });
     }
 
+    public void updateData(List<Messages> messages){
+        this.messages = messages;
+        notifyDataSetChanged();
+    }
 
     @Override
     public int getItemCount() {
@@ -72,6 +95,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             userName = itemView.findViewById(R.id.userNameID);
             userLastMessage = itemView.findViewById(R.id.lastMessageID);
             unseenMessage = itemView.findViewById(R.id.unseenMessageID);
+            layout = itemView.findViewById(R.id.mainLinearLayout);
         }
     }
 }
