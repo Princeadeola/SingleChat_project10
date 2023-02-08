@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.adeolaadesipe.singlechat.R;
-import com.adeolaadesipe.singlechat.chats.ChatActivity;
+import com.adeolaadesipe.singlechat.ChatActivity;
 import com.adeolaadesipe.singlechat.model.Messages;
 import com.squareup.picasso.Picasso;
 

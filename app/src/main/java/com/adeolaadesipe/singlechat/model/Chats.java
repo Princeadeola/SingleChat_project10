@@ -1,10 +1,10 @@
 package com.adeolaadesipe.singlechat.model;
 
-public class chats {
+public class Chats {
 
     private String number, name ,message, date, time;
 
-    public chats(String number, String name, String message, String date, String time) {
+    public Chats(String number, String name, String message, String date, String time) {
         this.number = number;
         this.name = name;
         this.message = message;
