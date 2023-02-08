@@ -103,6 +103,7 @@ public class ChatActivity extends AppCompatActivity {
                                     if (loadingFirstTime || Long.parseLong(messageTimeStamps) > Long.parseLong(MemoryData.getLastMessage(ChatActivity.this, chatKey))){
                                         loadingFirstTime = false;
 
+                                        // memory data to
                                         MemoryData.saveLastMessage(messageTimeStamps, chatKey, ChatActivity.this);
                                         chatAdapter.updateChat(chatsLists);
 
