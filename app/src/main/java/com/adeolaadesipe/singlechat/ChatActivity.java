@@ -41,6 +41,7 @@ public class ChatActivity extends AppCompatActivity {
     String chatKey;
     DatabaseReference reference;
     ChatAdapter chatAdapter;
+    boolean loadingFirstTime = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,6 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
         reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://singlechatapp-a1057-default-rtdb.firebaseio.com");
         chatsLists = new ArrayList<>();
-
 
         chatProfilePic = findViewById(R.id.chatUserProfilePic);
         chatBackBtn = findViewById(R.id.backBtnID);
@@ -82,6 +82,8 @@ public class ChatActivity extends AppCompatActivity {
 
                     if (snapshot.hasChild("chat")) {
                         if (snapshot.child("chat").child(chatKey).hasChild("messages")){
+                            chatsLists.clear();
+
                             for (DataSnapshot messageSnapshot : snapshot.child("chat").child("messages").getChildren()){
                                 if (messageSnapshot.hasChild("msg") &&  messageSnapshot.hasChild("number")){
 
@@ -89,18 +91,22 @@ public class ChatActivity extends AppCompatActivity {
                                     String getNumber = messageSnapshot.child("number").getValue(String.class);
                                     String getMessage = messageSnapshot.child("msg").getValue(String.class);
 
-                                    if (Long.parseLong(messageTimeStamps) > Long.parseLong(MemoryData.getLastMessage(ChatActivity.this, chatKey))){
+
+                                    Timestamp timestamp = new Timestamp(Long.parseLong(messageTimeStamps));
+                                    Date date = new Date(timestamp.getTime());
+                                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+                                    SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
+
+                                    Chats chatList = new Chats(getNumber, getName, getMessage, simpleTimeFormat.format(date), simpleDateFormat.format(date));
+                                    chatsLists.add(chatList);
+
+                                    if (loadingFirstTime || Long.parseLong(messageTimeStamps) > Long.parseLong(MemoryData.getLastMessage(ChatActivity.this, chatKey))){
+                                        loadingFirstTime = false;
+
                                         MemoryData.saveLastMessage(messageTimeStamps, chatKey, ChatActivity.this);
-
-                                        Timestamp timestamp = new Timestamp(Long.parseLong(messageTimeStamps));
-                                        Date date = new Date(timestamp.getTime());
-                                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-                                        SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
-
-                                        Chats chatList = new Chats(getNumber, getName, getMessage, simpleTimeFormat.format(date), simpleDateFormat.format(date));
-                                        chatsLists.add(chatList);
-
                                         chatAdapter.updateChat(chatsLists);
+
+                                        chatSectionRV.scrollToPosition(chatsLists.size() - 1);
                                     }
                                 }
                             }

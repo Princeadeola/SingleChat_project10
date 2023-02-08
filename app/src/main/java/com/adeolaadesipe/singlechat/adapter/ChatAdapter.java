@@ -41,9 +41,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
         if (list.getNumber().equals(userNumber)){
             holder.myLayout.setVisibility(View.VISIBLE);
             holder.userLayout.setVisibility(View.GONE);
+
+            holder.myMessage.setText(list.getMessage());
+            holder.myMessageTime.setText(list.getDate() + " " + list.getTime());
         }else{
             holder.myLayout.setVisibility(View.GONE);
             holder.userLayout.setVisibility(View.VISIBLE);
+
+            holder.userMessage.setText(list.getMessage());
+            holder.userMessageTime.setText(list.getDate() + " " + list.getTime());
         }
     }
 
