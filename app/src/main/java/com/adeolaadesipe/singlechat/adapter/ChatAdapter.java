@@ -16,6 +16,7 @@ import com.adeolaadesipe.singlechat.model.Chats;
 
 import java.util.List;
 
+// Tis is the adapter for the chat
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> {
 
     List<Chats> chats;
