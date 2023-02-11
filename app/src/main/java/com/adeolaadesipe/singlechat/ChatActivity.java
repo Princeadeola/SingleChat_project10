@@ -127,7 +127,8 @@ public class ChatActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String getChatMessage = chatMessageField.getText().toString();
 
-                String currentTimeStamp = String.valueOf(System.currentTimeMillis()).substring(0, 10); //current timestamp
+                //current timestamp
+                String currentTimeStamp = String.valueOf(System.currentTimeMillis()).substring(0, 10);
                 //MemoryData.saveLastMessage(currentTimeStamp, chatKey, ChatActivity.this);
 
                 reference.child("chat").child(chatKey).child("user_1").setValue(getUserNumber);
