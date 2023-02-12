@@ -129,8 +129,9 @@ public class ChatActivity extends AppCompatActivity {
 
                 //current timestamp
                 String currentTimeStamp = String.valueOf(System.currentTimeMillis()).substring(0, 10);
-                //MemoryData.saveLastMessage(currentTimeStamp, chatKey, ChatActivity.this);
 
+
+                //MemoryData.saveLastMessage(currentTimeStamp, chatKey, ChatActivity.this);
                 reference.child("chat").child(chatKey).child("user_1").setValue(getUserNumber);
                 reference.child("chat").child(chatKey).child("user_2").setValue(getNumber);
                 reference.child("chat").child(chatKey).child("messages").child(currentTimeStamp).child("msg").setValue(getChatMessage);
